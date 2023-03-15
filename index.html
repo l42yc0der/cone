@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩네컷</title>
+    <style>
+        @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+        }
+        body{
+            font-family: "LeeSeoyun";
+            margin:0;
+            display:flex;
+            justify-content:center;
+            background-image:url("./background.png")
+        }
+
+        .container{
+            width:390px;
+            background-color: #00D7FF;
+            height:100%;
+        }
+
+        .photos{
+            margin-top: 30px;
+        }
+
+        .photo_frame{
+            background-color: white;
+            margin:15px 20px;
+            height:200px;
+            background-size: cover;
+            position:relative;
+        }
+
+        .footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .f-title{
+            color:white;
+            font-size: 40px;
+            font-weight: 900;
+        }
+        
+        .f-date{
+            color:white;
+            font-size:15px;
+            font-weight: 500;
+        }
+
+        #image1{
+            background-image: url(./도두봉.jpg);
+        }
+        #image2{
+            background-image: url(./배1.jpg);
+        }
+        #image3{
+            background-image: url(./톨간이.jpg);
+        }
+        #image4{
+            background-image: url(./KakaoTalk_20230315_000935131.jpg);
+        }
+
+        .photo_description{
+            color:black;
+            background-color: white;
+            width: fit-content;
+            padding:0 20px;
+            margin-bottom: 10px;
+
+            font-size: 18px;
+            font-weight: 600;
+
+            border-radius: 5px;
+            position: absolute;
+            bottom:-5px;
+
+            transform: translate(-50%);
+            left:50%;
+            opacity: 0;
+        }
+
+        .video{
+            width: 100%;
+            height: 100%;
+        }
+
+        .showText{
+            opacity: 1;
+            transition: opacity 0.5s linear;
+        }
+
+        .hideText{
+            opacity: 0;
+        }
+    </style>
+    <script>
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            } else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            } else {
+                document.querySelector("#desc4").classList.remove("hideText");
+                document.querySelector("#desc4").classList.add("showText");
+            }
+        }
+
+        function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                document.querySelector("#desc1").classList.add("hideText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("showText");
+                document.querySelector("#desc2").classList.add("hideText");
+            } else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            } else {
+                document.querySelector("#desc4").classList.remove("showText");
+                document.querySelector("#desc4").classList.add("hideText");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="photos">
+            <div id="image1" class="photo_frame"
+                onmouseover="showText(1)"
+	            onmouseout="hideText(1)"
+            >
+                <span id="desc1" class="photo_description">
+                    제주도 도두봉
+                </span>
+            </div>
+            <div id="image2" class="photo_frame"
+                onmouseover="showText(2)"
+                onmouseout="hideText(2)"
+            >
+                <span id="desc2" class="photo_description">
+                    제주 바다
+                </span>
+            </div>
+            <div id="image3" class="photo_frame"
+                onmouseover="showText(3)"
+                onmouseout="hideText(3)"
+            >
+                <span id="desc3" class="photo_description">
+                    우도봉
+                </span>
+            </div>
+            <div id="video1" class="photo_frame"
+                onmouseover="showText(4)"
+                onmouseout="hideText(4)"
+            >
+                <iframe
+                    src="KakaoTalk_20230315_004841518.mp4"
+                    frameborder="0"
+                    class="video"
+                ></iframe>
+                <span id="desc4" class="photo_description">
+                    비행기
+                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="f-title">제주 여행</p>
+            <p class="f-date">2023.02.10 ~ 2023.02.13</p>
+        </div>
+    </div>
+</body>
+</html>
